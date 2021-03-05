@@ -42,11 +42,50 @@ namespace Quest
             int minAwesomeness = 0;
             int maxAwesomeness = 100;
 
+            Console.WriteLine("What's your name adventurer?");
+            string humanName = Console.ReadLine();
+
+
+            Robe theRobe = new Robe();
+
+            while (true)
+            {
+                Console.WriteLine("Name a color to be adorned on your robe.");
+                string aColor = Console.ReadLine();
+
+                theRobe.Colors.Add(aColor);
+
+                Console.WriteLine("Would you like to add another? (Y/N)");
+                string moreColors = Console.ReadLine().ToLower();
+                while (moreColors != "y" && moreColors != "n")
+                {
+                    Console.WriteLine("Would you like to add another? (Y/N)");
+                    moreColors = Console.ReadLine().ToLower();
+                }
+                if (moreColors == "n")
+                {
+                    break;
+                }
+
+
+            }
+
+
+
+
 
             // Make a new "Adventurer" object using the "Adventurer" class
-            Console.WriteLine("What's your name adventurer?");
-            Adventurer theAdventurer = new Adventurer(Console.ReadLine());
+            Adventurer theAdventurer = new Adventurer(humanName, theRobe);
+            Console.WriteLine("");
             Console.WriteLine($"Welcome to heck {theAdventurer.Name}, good luck.");
+            Console.WriteLine("");
+            Console.WriteLine("Lets have a look at you...");
+            Console.WriteLine("...");
+            Console.WriteLine("");
+            Console.WriteLine(theAdventurer.GetDescription());
+            Console.WriteLine("");
+            Console.WriteLine("Now answer these questions");
+            Console.WriteLine("");
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -60,45 +99,48 @@ namespace Quest
             };
 
             // Loop through all the challenges and subject the Adventurer to them
-           
 
-            while (true) {
-            foreach (Challenge challenge in challenges)
-            {
-                challenge.RunChallenge(theAdventurer);
-                
-            }
 
-            // This code examines how Awesome the Adventurer is after completing the challenges
-            // And praises or humiliates them accordingly
-            if (theAdventurer.Awesomeness >= maxAwesomeness)
+            while (true)
             {
-                Console.WriteLine("YOU DID IT! You are truly awesome!");
-                Console.WriteLine("");
-               
+                foreach (Challenge challenge in challenges)
+                {
+                    challenge.RunChallenge(theAdventurer);
 
-            }
-            else if (theAdventurer.Awesomeness <= minAwesomeness)
-            {
-                Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
-                Console.WriteLine("");
-               
-            }
-            else
-                    
-            {
-                Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
-                Console.WriteLine("");
-                
-            }
+                }
+
+                // This code examines how Awesome the Adventurer is after completing the challenges
+                // And praises or humiliates them accordingly
+                if (theAdventurer.Awesomeness >= maxAwesomeness)
+                {
+                    Console.WriteLine("YOU DID IT! You are truly awesome!");
+                    Console.WriteLine("");
+
+
+                }
+                else if (theAdventurer.Awesomeness <= minAwesomeness)
+                {
+                    Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
+                    Console.WriteLine("");
+
+                }
+                else
+
+                {
+                    Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+                    Console.WriteLine("");
+
+                }
                 Console.WriteLine("Would you like to play again?  (Y/N)");
-               string status = Console.ReadLine().ToLower();
-                if (status == "n") {
+                string status = Console.ReadLine().ToLower();
+                if (status == "n")
+                {
                     break;
                 }
-            
-        } }
-        
+
+            }
+        }
+
 
     }
 }
