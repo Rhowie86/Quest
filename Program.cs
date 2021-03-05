@@ -42,9 +42,11 @@ namespace Quest
             int minAwesomeness = 0;
             int maxAwesomeness = 100;
 
+
             // Make a new "Adventurer" object using the "Adventurer" class
             Console.WriteLine("What's your name adventurer?");
             Adventurer theAdventurer = new Adventurer(Console.ReadLine());
+            Console.WriteLine($"Welcome to heck {theAdventurer.Name}, good luck.");
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -58,9 +60,13 @@ namespace Quest
             };
 
             // Loop through all the challenges and subject the Adventurer to them
+           
+
+            while (true) {
             foreach (Challenge challenge in challenges)
             {
                 challenge.RunChallenge(theAdventurer);
+                
             }
 
             // This code examines how Awesome the Adventurer is after completing the challenges
@@ -68,15 +74,31 @@ namespace Quest
             if (theAdventurer.Awesomeness >= maxAwesomeness)
             {
                 Console.WriteLine("YOU DID IT! You are truly awesome!");
+                Console.WriteLine("");
+               
+
             }
             else if (theAdventurer.Awesomeness <= minAwesomeness)
             {
                 Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
+                Console.WriteLine("");
+               
             }
             else
+                    
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+                Console.WriteLine("");
+                
             }
-        }
+                Console.WriteLine("Would you like to play again?  (Y/N)");
+               string status = Console.ReadLine().ToLower();
+                if (status == "n") {
+                    break;
+                }
+            
+        } }
+        
+
     }
 }
