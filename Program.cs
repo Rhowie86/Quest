@@ -70,12 +70,15 @@ namespace Quest
 
             }
 
-
+            Hat theHat = new Hat();
+            {
+                theHat.ShininessLevel = new Random().Next(10);
+            }
 
 
 
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer(humanName, theRobe);
+            Adventurer theAdventurer = new Adventurer(humanName, theRobe, theHat);
             Console.WriteLine("");
             Console.WriteLine($"Welcome to heck {theAdventurer.Name}, good luck.");
             Console.WriteLine("");
