@@ -34,6 +34,32 @@ namespace Quest
                 4, 20
             );
 
+            Challenge mcDonalds = new Challenge(
+                @"There is a correct answer here. You may select only one.
+            
+            1) McDonalds 
+            2) Burger King?", 1, 50);
+
+            Challenge versus = new Challenge(
+                @"Who wins in a fight?
+                
+            1) The King
+            2) The Taco Bell Dog
+            3) Wendy
+            4) Ronald McDonald
+            5) Dave Thomas", 4, 50
+            );
+
+            Challenge mcMayor = new Challenge(
+                @"Who is the Mayor of the safe McDonalds?
+                
+            1) Mayor McBurger
+            2) Mayor McFry
+            3) Mayor McFlurry
+            4) Mayor McCheese
+            5) Mayor McDouble", 4, 23
+            );
+
             // "Awesomeness" is like our Adventurer's current "score"
             // A higher Awesomeness is better
 
@@ -103,7 +129,13 @@ namespace Quest
                 theAnswer,
                 whatSecond,
                 guessRandom,
-                favoriteBeatle
+                favoriteBeatle,
+                mcDonalds,
+                versus,
+                mcMayor
+
+
+
             };
 
             // Loop through all the challenges and subject the Adventurer to them
