@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 // Every class in the program is defined within the "Quest" namespace
 // Classes within the same namespace refer to one another without a "using" statement
 namespace Quest
@@ -75,6 +76,10 @@ namespace Quest
                 theHat.ShininessLevel = new Random().Next(10);
             }
 
+            Prize thePrize = new Prize("McRib and peptobismol");
+
+
+
 
 
             // Make a new "Adventurer" object using the "Adventurer" class
@@ -134,6 +139,8 @@ namespace Quest
                     Console.WriteLine("");
 
                 }
+
+                Console.WriteLine(thePrize.ShowPrize(theAdventurer));
                 Console.WriteLine("Would you like to play again?  (Y/N)");
                 string status = Console.ReadLine().ToLower();
                 if (status == "n")
